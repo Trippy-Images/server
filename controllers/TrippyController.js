@@ -10,7 +10,7 @@ class TrippyController {
         style: images[0],
         content: images[1],
       })
-      res.status(200).json({style: images[0], content: images[1], result: resp})
+      res.status(200).json({style: images[0], content: images[1], result: resp.output_url})
     } catch (error) {
       next(error)
     }
