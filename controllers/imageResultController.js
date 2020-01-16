@@ -21,6 +21,21 @@ class ImageResultController {
             }))
             .catch(next)
     }
+
+    static getAllImageResult(req, res, next) {
+        const { id } = req.decoded
+        ImageResult.find({
+            user: id
+        })
+            .sort({ createdAt: -1 })
+            .then(imageResults => {
+                res.status(200).json({
+                    message: 'success',
+                    imageResults
+                })
+            })
+            .catch(next)
+    }
 }
 
 module.exports = ImageResultController
