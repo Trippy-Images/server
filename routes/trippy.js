@@ -2,6 +2,6 @@ const router = require('express').Router()
 const TrippyController = require('../controllers/TrippyController')
 const gcsUpload = require('../middlewares/gcsUpload')
 
-router.post('/', gcsUpload.array('images') ,TrippyController.generate)
+router.post('/', gcsUpload.fields([{name:'image1'}, {name:'image2'}]) ,TrippyController.generate)
 
 module.exports = router
