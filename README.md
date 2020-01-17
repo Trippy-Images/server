@@ -6,17 +6,21 @@ Trippy Images Server
 
 **BASE URL**
 > http://localhost:3000
+
 router.use('/', userRoutes)
 router.use('/imageResult', imageResultRoutes)
 router.use('/trippy', authenticate, trippyRoutes)
+
 **END POINTS**
+
 No  | Route               | HTTP   | Authentication | Authorization
 ----|---------------------|--------|----------------|---------------
  1  | /register           | POST   | No             | No
  2  | /login              | POST   | No             | No
  3  | /trippy             | POST   | Yes            | No
+
 ---
-###1. POST /register
+### 1. POST /register
   > Add new user to users collections and returns JSON of token
 
 * **URL**
@@ -76,7 +80,7 @@ No  | Route               | HTTP   | Authentication | Authorization
       })
   ```
 
-###2. POST /login
+### 2. POST /login
   > Check users collections and returns JSON of token when user found
 
 * **URL**
@@ -133,7 +137,7 @@ No  | Route               | HTTP   | Authentication | Authorization
       })
   ```
 
-###3. POST /trippy
+### 3. POST /trippy
   > Check users collections and returns JSON of token when user found
 
 * **URL**
