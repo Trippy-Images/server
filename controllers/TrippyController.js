@@ -3,14 +3,12 @@ const deepai = require('deepai')
 class TrippyController {
   static async generate(req, res, next) {
     try {
-      const {images} = req.body
-
       deepai.setApiKey(process.env.DEEPAI_KEY);
       var resp = await deepai.callStandardApi("neural-style", {
-        style: images[0],
-        content: images[1],
+        style: req.body.image1[0],
+        content: req.body.image2[0],
       })
-      res.status(200).json({style: images[0], content: images[1], result: resp.output_url})
+      res.status(200).json({style: req.body.image1[0], content: req.body.image2[0], result: resp.output_url})
     } catch (error) {
       next(error)
     }
